@@ -1,0 +1,9 @@
+{
+  "name": "codejourney",
+  "version": "1.0.0",
+  "private": true,
+  "description": "CodeJourney mit KI-Suche auf W3Schools",
+  "scripts": {
+    "start": "node server.js"
+  }
+}

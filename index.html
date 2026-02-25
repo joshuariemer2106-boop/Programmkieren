@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CodeJourney</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=IBM+Plex+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <h1>Programmieren lernen</h1>
+      <p>Lerne Programmieren von HTML bis zu den wichtigsten Sprachen.</p>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-label">HTML Fortschritt</div>
+      <progress id="trackProgress" max="100" value="0"></progress>
+      <div id="progressText" class="progress-text">0 / 8 Aufgaben geloest</div>
+      <button id="themeToggleBtn" class="ghost-btn theme-toggle" type="button">Dunkelmodus</button>
+    </div>
+  </header>
+
+  <main class="layout">
+    <aside class="panel sidebar">
+      <h2>Lernpfad</h2>
+      <div id="trackList" class="track-list"></div>
+      <p class="side-note">
+        Start: HTML. Danach werden CSS, JavaScript und weitere Tracks freigeschaltet.
+      </p>
+    </aside>
+
+    <section class="panel practice">
+      <div class="practice-head">
+        <h2 id="lessonTitle">Aufgabe</h2>
+        <button id="openHandbookBtn" class="ghost-btn" type="button">Handbuch</button>
+      </div>
+      <p id="lessonDesc" class="lesson-desc"></p>
+      <div id="editor" aria-label="Code Editor"></div>
+      <div class="practice-actions">
+        <button id="runBtn">Vorschau</button>
+        <button id="checkBtn">Aufgabe pruefen</button>
+        <button id="resetBtn" class="ghost-btn">Vorlage laden</button>
+        <button id="openVscodeBtn" class="ghost-btn">In VS Code Web</button>
+      </div>
+      <h3>Live Vorschau</h3>
+      <iframe id="preview" title="HTML Vorschau"></iframe>
+      <h3>Feedback</h3>
+      <pre id="output"></pre>
+    </section>
+  </main>
+
+  <div id="handbookBackdrop" class="handbook-backdrop" hidden></div>
+  <section id="handbookPanel" class="panel handbook-drawer" aria-hidden="true">
+    <div class="handbook-topbar">
+      <h2>Handbuch</h2>
+      <button id="closeHandbookBtn" class="ghost-btn" type="button">Schliessen</button>
+    </div>
+    <div class="panel-head">
+      <input id="searchInput" type="search" placeholder="Im Handbuch suchen..." />
+    </div>
+    <div class="ai-ask">
+      <input id="aiQuestionInput" type="search" placeholder="Frage die KI zu W3Schools..." />
+      <button id="aiAskBtn" type="button">KI fragen</button>
+    </div>
+    <div id="aiAssistantResult" class="ai-result" aria-live="polite"></div>
+    <div id="chapterList" class="chapter-list"></div>
+    <article id="chapterContent" class="chapter-content"></article>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/monaco-editor/0.52.2/min/vs/loader.min.js"></script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
